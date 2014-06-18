@@ -47,8 +47,6 @@ publishing {
         mavenJava(MavenPublication) {
             from components.java
         }
-
-        println configurations.runtime.allDependencies
     }
     repositories {
         maven {
