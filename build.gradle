@@ -47,14 +47,12 @@ publishing {
         mavenJava(MavenPublication) {
             from components.java
         }
-
-        println configurations.runtime.allDependencies
     }
     repositories {
         maven {
             credentials {
-                username nexusUser
-                password nexusPassword
+                username (project.hasProperty('nexusUser') ? project.nexusUser : '')
+                password (project.hasProperty('nexusPassword') ? project.nexusPassword : '')
             }
             url  "http://nexus.nexelem.com:8081/nexus/content/repositories/snapshots"
         }
